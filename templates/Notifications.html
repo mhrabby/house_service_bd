@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<title>Notifications</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container">
+    <h2>Notifications</h2>
+    <table class="w3-table-all">
+        <thead>
+        <tr class="w3-light-grey w3-hover-red">
+            <th>Serial no</th>
+            <th>Request by</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>NID</th>
+            <th>Service Date</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        {% for object in objects %}
+        <tr class="w3-hover-green">
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.address }}</td>
+            <td>{{ object.phone }}</td>
+            <td>{{ object.nid }}</td>
+            <td>{{ object.service_date }}</td>
+            <td>
+              <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{object.id}}" name="booking_id"/>
+                <select name="status">
+                  <option value="pending" {% ifequal object.status "pending" %} selected {% endifequal %}>Pending</option>
+                  <option value="accepted" {% ifequal object.status "accepted" %} selected {% endifequal %}>Accepted</option>
+                  <option value="completed" {% ifequal object.status "completed" %} selected {% endifequal %}>Completd</option>
+                </select>
+                <input type="submit" value="Save"/>
+              </form>
+              </td>
+        </tr>
+       {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

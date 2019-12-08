@@ -1,0 +1,156 @@
+       {% load staticfiles %}
+       <link rel="stylesheet" href="{ % static 'css/style.css' %}">
+
+
+       <!DOCTYPE html>
+      <html lang="en" dir="ltr">
+
+        <head>
+          <meta charset="utf-8">
+          <title></title>
+          <link rel="stylesheet" href="{% static 'css/style.css' %}">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+        </head>
+        <body>
+
+        <div class="header">
+    <h2 class="logo">HouseServiceBD</h2>
+    <input type="checkbox" id="chk">
+    <label for="chk" class="show-menu-btn">
+      <i class="fas fa-ellipsis-h"></i>
+
+
+
+    </label>
+
+    <ul class="menu">
+      <label for="chk" class="hide-menu-btn">
+        <i class="fas fa-times"></i>
+      </label>
+      <a href="{% load staticfiles %}">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+
+      {% if request.session.username %}
+      <a href="worker/request">Notifications</a>
+      <a href="accounts/logout">Logout</a>
+      {% else %}
+      <a href="accounts/register">Register as Worker</a>
+      <a href="accounts/login">Login</a>
+      {% endif %}
+    </ul>
+  </div>
+
+
+        <div>
+          <div class="services-section">
+            <div class="inner-width">
+              <h1 class="section-title">Services</h1>
+              <div class="border"></div>
+              <div class="services-container">
+
+                <div class="service-box">
+                  <a href="worker/electricians">
+                  <div class="service-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  </a>
+                  <div class="service-title"><a style="text-decoration:none" href="worker/electricians">Electricians</a></div>
+                  <div class="service-desc">
+                    || Call a Electrician || </br>
+                    << Register you as a Electrician >>
+                  </div>
+                </div>
+
+                <div class="service-box">
+                  <a href="worker/cleaners">
+                  <div class="service-icon">
+                    <i class="fa fa-trash"></i>
+                  </div>
+                  </a>
+                  <div class="service-title"><a style="text-decoration:none" href="worker/cleaners">Cleaners</a></div>
+                  <div class="service-desc">
+                    || Call a  Cleaner || </br>
+                    << Register you as a Cleaner >>
+                  </div>
+                </div>
+
+                <div class="service-box">
+                  <a href="worker/shifters">
+                  <div class="service-icon">
+                    <i class="fa fa-share"></i>
+                  </div>
+                  </a>
+                  <div class="service-title"><a style="text-decoration:none" href="worker/shifters">Shifting & Setup</a></div>
+                  <div class="service-desc">
+                    || Call a  Shifter || </br>
+                    << Register you as a Shifter >>
+                  </div>
+                </div>
+
+                <div class="service-box">
+                  <a href="worker/workers">
+                  <div class="service-icon">
+                    <i class="fas fa-university"></i>
+                  </div>
+                  </a>
+                  <div class="service-title"><a style="text-decoration:none" href="worker/workers">Construction Work</a></div>
+                  <div class="service-desc">
+                    || Call a Worker || </br>
+                    << Register you as a Worker >>
+                  </div>
+                </div>
+
+                <div class="service-box">
+                  <a href="worker/plumbers">
+                  <div class="service-icon">
+                    <i class="fas fa-shower"></i>
+                  </div>
+                  </a>
+                  <div class="service-title"><a style="text-decoration:none" href="worker/plumbers">Plumbers</a></div>
+                  <div class="service-desc">
+                    || Call a Plumber || </br>
+                    << Register you as a Plumber >>
+                  </div>
+                </div>
+
+                <div class="service-box">
+                  <a href="worker/painters">
+                  <div class="service-icon">
+                    <i class="fas fa-brush"></i>
+                  </div>
+                  </a>
+                  <div class="service-title"><a style="text-decoration:none" href="worker/painters">Wall Painters</a></div>
+                  <div class="service-desc">
+                    || Call a Painter || </br>
+                    << Register you as a Painter >>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br>
+<div>
+       <div>
+        <div class="contact-info">
+            <div class="card">
+              <i class="card-icon far fa-envelope"></i>
+              <p>houseservicebd24@gmail.com</p>
+            </div>
+            <div class="card">
+              <i class="card-icon fas fa-phone"></i>
+              <p>+8801635091278</p>
+            </div>
+            <div class="card">
+              <i class="card-icon fas fa-map-marker-alt"></i>
+              <p>24/A Dhanmondi, Dhaka, Bangladesh</p>
+            </div>
+          </div>
+        </div>
+</div>
+        </body>
+      </html>
+

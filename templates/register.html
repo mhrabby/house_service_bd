@@ -1,0 +1,104 @@
+{% load staticfiles %}
+
+<!-- <div>-->
+
+<!--        {% for message in messages %}-->
+<!--        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">-->
+<!--                            {{ message }}-->
+<!--                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--                       <span aria-hidden="true">&times;</span>-->
+<!--                       </button>-->
+<!--        </div>-->
+
+<!--        {% endfor %}-->
+<!--    </div>-->
+
+
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{ % static 'css/register.css' %}">
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+
+  {% for message in messages %}
+
+  <div class="container">
+
+  <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{ message }}</strong>
+  </div>
+
+    {% endfor %}
+
+<body class="contact-section">
+
+  <h1>Registration Form</h1>
+  <div class="border"></div>
+  <div class="contact-form">
+
+    <form method="post" action="{% url 'register' %}">
+
+           {% csrf_token %}
+      NAME
+      <input type="text" name ="name" class="contact-form-text" placeholder="Your name">
+      USERNAME
+      <input type="text" name ="username" class="contact-form-text" placeholder="Enter Username">
+      EMAIL
+      <input type="email" name="email" class="contact-form-text" placeholder="Enter your email ">
+      PASSWORD
+      <input type="password" name="password1" class="contact-form-text" placeholder="Enter a password">
+      CONFIRM PASSWORD
+      <input type="password" name="password2" class="contact-form-text" placeholder="Confirm your password">
+      NID
+      <input type="text" name="nid" class="contact-form-text" placeholder="Give your NID number">
+      UPLOAD YOUR NID
+      <input type="file" name="upload_nid" class="contact-form-text" accept="image/*">
+      UPLOAD YOUR PHOTO
+      <input type="file" name="pic" class="contact-form-text" accept="image/*">
+      PHONE
+      <input type="text" name="phone" class="contact-form-text" placeholder="Your phone number">
+      ADDRESS
+      <input type="text" name="address" class="contact-form-text" placeholder="Your address">
+      LOCATION
+      <input type="text" name="location" class="contact-form-text" placeholder="Your work location">
+      <div align="left">
+        TYPE OF WORK <br>
+        <br>
+          <select name="type_of_work" >
+            <option value="electrician">Electrician</option>
+            <option value="cleaner">Cleaner</option>
+            <option value="shifter">Shifter</option>
+            <option value="worker">Worker</option>
+            <option value="plumber">Plumber</option>
+            <option value="painter">Wall Painter</option>
+        </select>
+      </div>
+
+      <br>
+
+      <button type="submit" value="Submit" class="contact-form-btn">Submit</button>
+
+
+    </form>
+
+</div>
+  </body>
+
+</html>
+
+{% endblock %}
